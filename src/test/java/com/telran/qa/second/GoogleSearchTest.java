@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 public class GoogleSearchTest {
     WebDriver wd;
 
-    @BeforeMethod
-   //@BeforeClass
+    //@BeforeMethod
+   @BeforeClass
     public void setUp(){
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -25,7 +25,7 @@ public class GoogleSearchTest {
     public void testGoogleSearch(){
         type(By.name("q"), "WebDriver"+ Keys.ENTER);
         click(By.cssSelector("[href='https://www.selenium.dev/documentation/en/webdriver/']"));
-      //wd.navigate().back();
+      wd.navigate().back();
         //Assert.
     }
 
@@ -45,8 +45,8 @@ public class GoogleSearchTest {
         wd.findElement(locator).sendKeys(text);
     }
 
-   //@AfterClass
-   @AfterMethod
+   @AfterClass
+   //@AfterMethod
     public void tearDown(){
         wd.quit();
     }
